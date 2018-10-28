@@ -2,7 +2,22 @@ import sys
 
 
 def main(inp, out):
-    pass
+    n = int(inp.readline())
+    a = list(map(int, inp.readline().split()))
+    b = list(map(int, inp.readline().split()))
+    was = set()
+    index = 0
+    for number in b:
+        result = 0
+        if number not in was:
+            while a[index] != number:
+                result += 1
+                was.add(a[index])
+                index += 1
+            result += 1
+            was.add(a[index])
+            index += 1
+        print(result, end=' ', file=out)
 
 
 if __name__ == '__main__':
