@@ -20,6 +20,17 @@ int main() {
         auto& input = std::cin;
         auto& output = std::cout;
     #endif
-
+    size_t n;
+    input >> n;
+    std::vector<size_t> a(n);
+    size_t sum = 0;
+    size_t max = 0;
+    for (size_t index = 0; index < n; ++index) {
+        input >> a[index];
+        sum += a[index];
+        max = std::max(max, a[index]);
+    }
+    size_t result = std::max(max, 2 * sum / n + 1);
+    output << result;
     return 0;
 }
